@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Irfanos</title>
+
+    <!-- Link to the master stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23007bff' d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'%3E%3C/path%3E%3C/svg%3E">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">Irfanos</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="signin.html" class="cta-nav">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Your Dashboard</h1>
+                <p>A summary of your current activities and progress.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-content container">
+            
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Pending Tasks</h3>
+                    <p class="summary-stat">8</p>
+                </div>
+                <div class="card">
+                    <h3>Notes Created</h3>
+                    <p class="summary-stat">34</p>
+                </div>
+                <div class="card">
+                    <h3>Goals In Progress</h3>
+                    <p class="summary-stat">3</p>
+                </div>
+            </div>
+
+            <div class="dashboard-main">
+                <div class="card">
+                    <h3>Today's High-Priority Tasks</h3>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" id="task1" checked>
+                            <label for="task1">Finalize project proposal for Q3</label>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" id="task2">
+                            <label for="task2">Follow up with the design team on new mockups</label>
+                        </li>
+                         <li class="task-item">
+                            <input type="checkbox" id="task3">
+                            <label for="task3">Schedule annual dentist appointment</label>
+                        </li>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h3>Recent Activity</h3>
+                    <ul class="activity-list">
+                       <li>You added "Buy groceries for the week" to your personal To-Do list.</li>
+                       <li>You completed the "Read Chapter 5 of 'Atomic Habits'" study goal.</li>
+                       <li>You created a new note titled "Initial Ideas" in your Business Organizer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Irfanos — All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="#">[GitHub]</a>
+                <a href="#">[LinkedIn]</a>
+                <a href="contact.html">[Email]</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
