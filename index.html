@@ -1,89 +1,148 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irfanos - Personal Hub</title><!-- Favicon -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23007bff' d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'%3E%3C/path%3E%3C/svg%3E">
+    <title>Irfanos - Personal Hub</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23007bff' d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'%3E%3C/path%3E%3C/svg%3E">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- External CSS -->
-<link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your new stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
-<body><header class="header" id="home">
-    <nav class="navbar container">
-        <a href="#home" class="logo">Irfanos</a>
-        <a href="#" class="header-cta-button">Dashboard</a>
-        <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<body>
 
-<main>
-    <section class="hero">
-        <div class="hero-content container">
-            <h1>Welcome to Irfanos</h1>
-            <p>Your All-in-One Personal Management Hub</p>
-        </div>
-    </section>
+    <header class="header" id="home">
+        <nav class="navbar container">
+            <a href="#home" class="logo">Irfanos</a>
+            <a href="#" class="header-cta-button">Dashboard</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section class="features" id="features">
+    <main>
+        <section class="hero">
+            <div class="hero-content container">
+                <h1>Welcome to Irfanos</h1>
+                <p>Your All-in-One Personal Management Hub</p>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="features-grid">
+                    <a href="library.html" class="feature-card" style="animation-delay: 0.1s;">
+                        <div class="feature-icon">📚</div>
+                        <h3>Study Library</h3>
+                        <p>Organize notes and resources.</p>
+                    </a>
+                    <a href="#" class="feature-card" style="animation-delay: 0.2s;">
+                        <div class="feature-icon">✅</div>
+                        <h3>To-Do Manager</h3>
+                        <p>Track tasks and priorities.</p>
+                    </a>
+                    <a href="#" class="feature-card" style="animation-delay: 0.3s;">
+                        <div class="feature-icon">💼</div>
+                        <h3>Business Organizer</h3>
+                        <p>Manage projects and clients.</p>
+                    </a>
+                    <a href="#" class="feature-card" style="animation-delay: 0.4s;">
+                        <div class="feature-icon">🏫</div>
+                        <h3>Institute Planner</h3>
+                        <p>Track schedules and assignments.</p>
+                    </a>
+                    <a href="#" class="feature-card" style="animation-delay: 0.5s;">
+                        <div class="feature-icon">💰</div>
+                        <h3>Finance Tracker</h3>
+                        <p>Monitor budgets and expenses.</p>
+                    </a>
+                    <a href="#" class="feature-card" style="animation-delay: 0.6s;">
+                        <div class="feature-icon">🌿</div>
+                        <h3>Wellness & Goals</h3>
+                        <p>Set and track personal goals.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="graphs-section" id="progress">
+            <div class="container">
+                <div class="graphs-grid">
+                    <div class="graph-item" style="animation-delay: 0.2s;">
+                        <h3>Tasks Completed</h3>
+                        <div class="donut-chart" style="animation-name: fill-tasks;"><span class="percent">75%</span></div>
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background-color:#6f42c1;"></span>Work (40%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#fd7e14;"></span>Personal (35%)</div>
+                        </div>
+                    </div>
+                    <div class="graph-item" style="animation-delay: 0.4s;">
+                        <h3>Study Goals</h3>
+                        <div class="donut-chart" style="animation-name: fill-study;"><span class="percent">60%</span></div>
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background-color:#20c997;"></span>Reading (30%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#28a745;"></span>Practice (30%)</div>
+                        </div>
+                    </div>
+                    <div class="graph-item" style="animation-delay: 0.6s;">
+                        <h3>Budget Used</h3>
+                        <div class="donut-chart" style="animation-name: fill-budget;"><span class="percent">85%</span></div>
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background-color:#ffc107;"></span>Food (40%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#dc3545;"></span>Bills (30%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#6c757d;"></span>Other (15%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="weekly-focus">
+            <div class="container">
+                <h2 class="section-title">This Week's Focus</h2>
+                <div class="focus-grid">
+                    <div class="focus-item" style="animation-delay: 0.1s;">
+                        <h3><span>🎯</span>Main Goal</h3>
+                        <p>Finalize the Q3 project report and prepare the presentation deck.</p>
+                    </div>
+                    <div class="focus-item" style="animation-delay: 0.2s;">
+                        <h3><span>🧠</span>Learning</h3>
+                        <p>Complete the advanced CSS module and start the JavaScript basics.</p>
+                    </div>
+                    <div class="focus-item" style="animation-delay: 0.3s;">
+                        <h3><span>⚙️</span>Project</h3>
+                        <p>Refactor the authentication flow for the personal dashboard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
         <div class="container">
-            <div class="features-grid">
-                <a href="library.html" class="feature-card" style="animation-delay: 0.1s;">
-                    <div class="feature-icon">📚</div>
-                    <h3>Study Library</h3>
-                    <p>Organize notes and resources.</p>
-                </a>
-                <a href="#" class="feature-card" style="animation-delay: 0.2s;">
-                    <div class="feature-icon">✅</div>
-                    <h3>To-Do Manager</h3>
-                    <p>Track tasks and priorities.</p>
-                </a>
-                <a href="#" class="feature-card" style="animation-delay: 0.3s;">
-                    <div class="feature-icon">💼</div>
-                    <h3>Business Organizer</h3>
-                    <p>Manage projects and clients.</p>
-                </a>
-                <a href="#" class="feature-card" style="animation-delay: 0.4s;">
-                    <div class="feature-icon">🏫</div>
-                    <h3>Institute Planner</h3>
-                    <p>Track schedules and assignments.</p>
-                </a>
-                <a href="#" class="feature-card" style="animation-delay: 0.5s;">
-                    <div class="feature-icon">💰</div>
-                    <h3>Finance Tracker</h3>
-                    <p>Monitor budgets and expenses.</p>
-                </a>
-                <a href="#" class="feature-card" style="animation-delay: 0.6s;">
-                    <div class="feature-icon">🌿</div>
-                    <h3>Wellness & Goals</h3>
-                    <p>Set and track personal goals.</p>
-                </a>
+            <p>© 2025 Irfanos — All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="#" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                <a href="#" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="#" title="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+                <a href="#" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
+                <a href="#" title="Pinterest"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.117.223.084.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.318.545 3.582.545 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg></a>
+                <a href="#" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
             </div>
         </div>
-    </section>
-</main>
-
-<footer class="footer" id="contact">
-    <div class="container">
-        <p>© 2025 Irfanos — All Rights Reserved</p>
-        <div class="footer-links">
-            <a href="#" title="GitHub">GitHub</a>
-            <a href="#" title="LinkedIn">LinkedIn</a>
-            <a href="#" title="YouTube">YouTube</a>
-            <a href="#" title="Facebook">Facebook</a>
-            <a href="#" title="Instagram">Instagram</a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
-</html>
+                                </html>
