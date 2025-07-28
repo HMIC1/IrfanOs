@@ -302,4 +302,4 @@ a.feature-card { text-decoration: none; color: inherit; }
 }
 @keyframes fill-budget { 
     to { background: conic-gradient(#ffc107 0% 40%, #dc3545 40% 70%, #6c757d 70% 85%, var(--border-color) 85% 100%); } 
-}
+                                    }
