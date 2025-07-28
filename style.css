@@ -76,20 +76,22 @@ main { flex-grow: 1; }
     grid-template-columns: 1fr;
     gap: 25px;
 }
-a.feature-card { text-decoration: none; color: inherit; }
 .feature-card {
     background-color: var(--bg-color);
     padding: 25px;
     border-radius: 16px;
     text-align: left;
+    text-decoration: none; /* In case it's an 'a' tag */
+    color: inherit; /* In case it's an 'a' tag */
     border: 1px solid var(--border-color);
     box-shadow: 0 5px 25px var(--shadow-color);
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0; 
     transform: translateY(30px);
+    /* ========== FIX: Make cards flex containers to align content ========== */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Align content to the top */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .feature-card:hover {
@@ -142,20 +144,17 @@ a.feature-card { text-decoration: none; color: inherit; }
     background: var(--bg-color); border-radius: 50%;
 }
 .donut-chart .percent { z-index: 2; }
-
-/* ========== THIS IS THE CORRECTED PART ========== */
-/* Legend is now visible on all screen sizes */
 .chart-legend {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px 15px;
-    margin-top: 20px; /* Add space below the chart */
+    margin-top: 20px;
 }
 .legend-item {
     display: flex;
     align-items: center;
-    font-size: 0.9rem; /* Slightly larger for readability */
+    font-size: 0.9rem;
     color: var(--text-light);
 }
 .legend-color {
@@ -164,7 +163,6 @@ a.feature-card { text-decoration: none; color: inherit; }
     border-radius: 3px;
     margin-right: 8px;
 }
-/* ============================================== */
 
 /* --- Weekly Focus Section --- */
 .weekly-focus {
@@ -275,7 +273,12 @@ a.feature-card { text-decoration: none; color: inherit; }
     .hero p { font-size: 1.25rem; }
     
     .features { padding: 80px 0; }
-    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .features-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px; 
+        /* ========== FIX: This tells the grid to create rows that fit their content ========== */
+        align-items: stretch;
+    }
     
     .graphs-section { padding: 80px 0; }
     .graphs-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
@@ -302,4 +305,4 @@ a.feature-card { text-decoration: none; color: inherit; }
 }
 @keyframes fill-budget { 
     to { background: conic-gradient(#ffc107 0% 40%, #dc3545 40% 70%, #6c757d 70% 85%, var(--border-color) 85% 100%); } 
-                                    }
+           }
