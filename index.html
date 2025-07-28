@@ -5,28 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irfanos - Personal Hub</title>
     
-    <!-- Link to the master stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Favicon -->
+    <!-- Favicon to match the developer icon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23007bff' d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'%3E%3C/path%3E%3C/svg%3E">
 
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Pure HTML & CSS -->
+    <style>
+        /* --- CSS Reset & Global Variables --- */
+        :root {
+            --primary-blue: #007bff;
+            --text-dark: #212529;
+            --text-light: #6c757d;
+            --bg-color: #ffffff;
+            --bg-light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Header / Navbar (Hidden on Mobile By Default) --- */
+        .header { display: none; }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-blue);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; 
+            transform: translateY(20px);
+        }
+        /* FIXED: Show the H1 on mobile, but make it smaller than desktop */
+        .hero h1 { 
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .cta-button:hover { transform: translateY(-3px); }
+
+        /* --- Features Section --- */
+        .features { padding: 50px 0; background-color: var(--bg-light-gray); }
+        .features-grid {
+            display: grid;
+            /* FIXED: Default to a single column for mobile */
+            grid-template-columns: 1fr;
+            gap: 25px; /* Increased gap for vertical stacking */
+        }
+        .feature-card {
+            background-color: var(--bg-color);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 25px var(--shadow-color);
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0; 
+            transform: translateY(30px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* FIXED: Removed aspect-ratio to allow content to define height */
+        }
+        .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+        
+        /* --- Activity Graphs Section --- */
+        .graphs-section { padding: 50px 0; background-color: #fff; }
+        .graphs-grid {
+            display: grid;
+             /* FIXED: Default to a single column for mobile */
+            grid-template-columns: 1fr;
+            /* FIXED: Increased gap for better vertical spacing on mobile */
+            gap: 40px;
+            align-items: start;
+            text-align: center;
+        }
+        .graph-item {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0; 
+            transform: translateY(30px);
+        }
+        .graph-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .donut-chart {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            position: relative;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--border-color);
+            animation: fill-donut 2s 0.5s forwards;
+        }
+        .donut-chart::before {
+            content: ''; position: absolute;
+            width: 75px; height: 75px;
+            background: var(--bg-color); border-radius: 50%;
+        }
+        .donut-chart .percent { z-index: 2; }
+        /* Hide legend on mobile for a cleaner look */
+        .chart-legend { display: none; }
+        
+        /* --- Footer --- */
+        .footer {
+            background-color: #212529; color: #ccc;
+            text-align: center; padding: 40px 20px;
+            margin-top: 30px;
+        }
+        .footer p { margin-bottom: 15px; }
+        .footer-links a {
+            color: #ccc; text-decoration: none;
+            font-size: 1rem; margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--primary-blue); }
+
+        /* --- Keyframes --- */
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Tablet & Desktop Styles (Screen widths 768px and up) --- */
+        @media (min-width: 768px) {
+            /* Show header on desktop */
+            .header { display: block; padding: 20px 0; }
+            .navbar { display: flex; align-items: center; justify-content: space-between; }
+            .logo { font-size: 1.8rem; font-weight: 600; color: var(--text-dark); text-decoration: none;}
+            .nav-links { display: flex; list-style: none; }
+            .nav-links li { margin-left: 30px; }
+            .nav-links a { font-size: 1rem; text-decoration: none; color: var(--text-light); transition: color 0.3s ease; }
+            .nav-links a:hover, .nav-links a.active { color: var(--primary-blue); }
+            
+            .hero { padding: 80px 0; justify-content: start; text-align: left; }
+            .hero-content { max-width: 50%; }
+            /* Restore large H1 for desktop */
+            .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+            .hero p { font-size: 1.25rem; }
+            
+            .features { padding: 80px 0; }
+            /* FIXED: Apply 3-column grid only on larger screens */
+            .features-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            
+            .graphs-section { padding: 80px 0; }
+            /* FIXED: Apply 3-column grid only on larger screens */
+            .graphs-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+            .graph-item h3 { font-size: 1.2rem; margin-bottom: 20px; }
+            .donut-chart { width: 120px; height: 120px; }
+            .donut-chart::before { width: 95px; height: 95px; }
+            .donut-chart .percent { font-size: 1.8rem; }
+            
+            /* Show legend on desktop */
+            .chart-legend {
+                display: flex; justify-content: center;
+                flex-wrap: wrap; gap: 10px 15px;
+                margin-top: 25px;
+            }
+            .legend-item { display: flex; align-items: center; font-size: 0.85rem; }
+            .legend-color { width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; }
+        }
+    </style>
 </head>
 <body>
 
     <header class="header" id="home">
         <nav class="navbar container">
-            <a href="index.html" class="logo">Irfanos</a>
+            <a href="#home" class="logo">Irfanos</a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="signin.html" class="cta-nav">Sign In</a></li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -36,47 +236,54 @@
             <div class="hero-content container">
                 <h1>Welcome to Irfanos</h1>
                 <p>Your All-in-One Personal Management Hub</p>
-                <a href="dashboard.html" class="cta-button">Enter Dashboard</a>
+                <a href="#" class="cta-button">[Enter Dashboard]</a>
             </div>
         </section>
 
         <section class="features" id="features">
             <div class="container">
-                <h2>Core Features</h2>
                 <div class="features-grid">
-                    <div class="feature-card"><div class="feature-icon">📚</div><h3>Study Library</h3><p>Organize notes and resources.</p></div>
-                    <div class="feature-card"><div class="feature-icon">✅</div><h3>To-Do Manager</h3><p>Track tasks and priorities.</p></div>
-                    <div class="feature-card"><div class="feature-icon">💼</div><h3>Business Organizer</h3><p>Manage projects and clients.</p></div>
-                    <div class="feature-card"><div class="feature-icon">🏫</div><h3>Institute Planner</h3><p>Track schedules and assignments.</p></div>
-                    <div class="feature-card"><div class="feature-icon">💰</div><h3>Finance Tracker</h3><p>Monitor budgets and expenses.</p></div>
-                    <div class="feature-card"><div class="feature-icon">🌿</div><h3>Wellness & Goals</h3><p>Set and track personal goals.</p></div>
+                    <div class="feature-card" style="animation-delay: 0.1s;"><div class="feature-icon">📚</div><h3>Study Library</h3><p>Organize notes and resources.</p></div>
+                    <div class="feature-card" style="animation-delay: 0.2s;"><div class="feature-icon">✅</div><h3>To-Do Manager</h3><p>Track tasks and priorities.</p></div>
+                    <div class="feature-card" style="animation-delay: 0.3s;"><div class="feature-icon">💼</div><h3>Business Organizer</h3><p>Manage projects and clients.</p></div>
+                    <div class="feature-card" style="animation-delay: 0.4s;"><div class="feature-icon">🏫</div><h3>Institute Planner</h3><p>Track schedules and assignments.</p></div>
+                    <div class="feature-card" style="animation-delay: 0.5s;"><div class="feature-icon">💰</div><h3>Finance Tracker</h3><p>Monitor budgets and expenses.</p></div>
+                    <div class="feature-card" style="animation-delay: 0.6s;"><div class="feature-icon">🌿</div><h3>Wellness & Goals</h3><p>Set and track personal goals.</p></div>
                 </div>
             </div>
         </section>
         
         <section class="graphs-section" id="progress">
             <div class="container">
-                <h2>Activity at a Glance</h2>
                 <div class="graphs-grid">
-                    <div class="graph-item">
+                    <!-- Graph 1: Tasks -->
+                    <div class="graph-item" style="animation-delay: 0.2s;">
                         <h3>Tasks Completed</h3>
-                        <div class="donut-chart" style="animation-name: fill-tasks;"><span class="percent">75%</span></div>
+                        <div class="donut-chart" style="animation-name: fill-tasks;">
+                            <span class="percent">75%</span>
+                        </div>
                         <div class="chart-legend">
                             <div class="legend-item"><span class="legend-color" style="background-color:#6f42c1;"></span>Work</div>
                             <div class="legend-item"><span class="legend-color" style="background-color:#fd7e14;"></span>Personal</div>
                         </div>
                     </div>
-                    <div class="graph-item">
+                    <!-- Graph 2: Study -->
+                    <div class="graph-item" style="animation-delay: 0.4s;">
                         <h3>Study Goals</h3>
-                        <div class="donut-chart" style="animation-name: fill-study;"><span class="percent">60%</span></div>
+                        <div class="donut-chart" style="animation-name: fill-study;">
+                           <span class="percent">60%</span>
+                        </div>
                         <div class="chart-legend">
                             <div class="legend-item"><span class="legend-color" style="background-color:#20c997;"></span>Reading</div>
                             <div class="legend-item"><span class="legend-color" style="background-color:#28a745;"></span>Practice</div>
                         </div>
                     </div>
-                    <div class="graph-item">
+                    <!-- Graph 3: Budget -->
+                    <div class="graph-item" style="animation-delay: 0.6s;">
                         <h3>Budget Used</h3>
-                        <div class="donut-chart" style="animation-name: fill-budget;"><span class="percent">85%</span></div>
+                        <div class="donut-chart" style="animation-name: fill-budget;">
+                            <span class="percent">85%</span>
+                        </div>
                         <div class="chart-legend">
                             <div class="legend-item"><span class="legend-color" style="background-color:#ffc107;"></span>Food</div>
                             <div class="legend-item"><span class="legend-color" style="background-color:#dc3545;"></span>Bills</div>
@@ -94,10 +301,17 @@
             <div class="footer-links">
                 <a href="#">[GitHub]</a>
                 <a href="#">[LinkedIn]</a>
-                <a href="contact.html">[Email]</a>
+                <a href="#">[Email]</a>
             </div>
         </div>
     </footer>
 
+    <!-- In-line style for CSS animations -->
+    <style>
+        @keyframes fill-tasks { to { background: conic-gradient(#6f42c1 0% 40%, #fd7e14 40% 75%, var(--border-color) 75% 100%); } }
+        @keyframes fill-study { to { background: conic-gradient(#20c997 0% 30%, #28a745 30% 60%, var(--border-color) 60% 100%); } }
+        @keyframes fill-budget { to { background: conic-gradient(#ffc107 0% 40%, #dc3545 40% 70%, #6c757d 70% 85%, var(--border-color) 85% 100%); } }
+    </style>
+
 </body>
-  </html>
+</html>
