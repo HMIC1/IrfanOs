@@ -12,292 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Pure HTML & CSS -->
-    <style>
-        /* --- CSS Reset & Global Variables --- */
-        :root {
-            --primary-blue: #007bff;
-            --text-dark: #212529;
-            --text-light: #6c757d;
-            --bg-color: #ffffff;
-            --bg-light-gray: #f8f9fa;
-            --border-color: #e9ecef;
-            --shadow-color: rgba(0, 0, 0, 0.05);
-            --font-family: 'Poppins', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-family);
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        main { flex-grow: 1; }
-
-        /* --- Header / Navbar --- */
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--bg-color);
-            box-shadow: 0 2px 10px var(--shadow-color);
-            /* ========== FIX: Make header visible on all devices ========== */
-            display: block; 
-            padding: 15px 0;
-        }
-        .navbar {
-            position: relative;
-            display: flex;
-            align-items: center;
-            /* ========== FIX: Center logo on mobile, space-between on desktop ========== */
-            justify-content: center; 
-        }
-        .logo { 
-            font-size: 1.8rem; 
-            font-weight: 600; 
-            color: var(--text-dark); 
-            text-decoration: none;
-        }
-        /* ========== FIX: Hide extra elements on mobile by default ========== */
-        .header-cta-button, .nav-links {
-            display: none;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary-blue);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        .hero-content {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0; 
-            transform: translateY(20px);
-        }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.1rem; font-weight: 500; }
-        
-        /* --- Features Section --- */
-        .features { padding: 50px 0; background-color: var(--bg-light-gray); }
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-        a.feature-card { text-decoration: none; color: inherit; }
-        .feature-card {
-            background-color: var(--bg-color);
-            padding: 25px;
-            border-radius: 16px;
-            text-align: left;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 5px 25px var(--shadow-color);
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0; 
-            transform: translateY(30px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-        }
-        .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
-        .feature-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 5px;
-        }
-        .feature-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.4; }
-        
-        /* --- Activity Graphs Section --- */
-        .graphs-section { padding: 50px 0; background-color: #fff; }
-        .graphs-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: start;
-            text-align: center;
-        }
-        .graph-item {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0; 
-            transform: translateY(30px);
-        }
-        .graph-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 15px; }
-        .donut-chart {
-            width: 100px; height: 100px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            position: relative;
-            font-size: 1.5rem;
-            font-weight: 600;
-            background: var(--border-color);
-            animation: fill-donut 2s 0.5s forwards;
-        }
-        .donut-chart::before {
-            content: ''; position: absolute;
-            width: 75px; height: 75px;
-            background: var(--bg-color); border-radius: 50%;
-        }
-        .donut-chart .percent { z-index: 2; }
-        .chart-legend { display: none; }
-        
-        /* --- Weekly Focus Section --- */
-        .weekly-focus {
-            padding: 60px 0;
-            background-color: var(--bg-light-gray);
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            font-weight: 600;
-        }
-        .focus-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        .focus-item {
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0; 
-            transform: translateY(20px);
-        }
-        .focus-item h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        .focus-item h3 span {
-            margin-right: 10px;
-            font-size: 1.5rem;
-        }
-        .focus-item p {
-            color: var(--text-light);
-            padding-left: 34px;
-        }
-        
-        /* --- Footer --- */
-        .footer {
-            background-color: #212529; color: #ccc;
-            text-align: center; padding: 40px 20px;
-        }
-        .footer p { margin-bottom: 20px; }
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        .footer-links a:hover {
-            color: var(--primary-blue);
-            transform: translateY(-2px);
-        }
-        .footer-links svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* --- Keyframes --- */
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-        /* --- Tablet & Desktop Styles (Screen widths 768px and up) --- */
-        @media (min-width: 768px) {
-            .header { padding: 20px 0; }
-            .navbar { justify-content: space-between; }
-            
-            /* ========== FIX: Show header elements on desktop ========== */
-            .header-cta-button, .nav-links {
-                display: flex;
-            }
-            .header-cta-button {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                background-color: var(--primary-blue);
-                color: white;
-                padding: 8px 20px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 500;
-                font-size: 0.9rem;
-                white-space: nowrap;
-                transition: background-color 0.3s ease, transform 0.3s ease;
-            }
-            .header-cta-button:hover {
-                background-color: #0069d9;
-                transform: translate(-50%, -50%) scale(1.05);
-            }
-            .nav-links { list-style: none; }
-            .nav-links li { margin-left: 30px; }
-            .nav-links a { font-size: 1rem; text-decoration: none; color: var(--text-light); transition: color 0.3s ease; }
-            .nav-links a:hover, .nav-links a.active { color: var(--primary-blue); }
-            
-            .hero { padding: 80px 0; justify-content: start; text-align: left; }
-            .hero-content { max-width: 50%; }
-            .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
-            .hero p { font-size: 1.25rem; }
-            
-            .features { padding: 80px 0; }
-            .features-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-            
-            .graphs-section { padding: 80px 0; }
-            .graphs-grid { grid-template-columns: repeat(3, 1fr); gap: 15px; }
-
-            .graph-item h3 { font-size: 1.2rem; margin-bottom: 20px; }
-            .donut-chart { width: 120px; height: 120px; }
-            .donut-chart::before { width: 95px; height: 95px; }
-            .donut-chart .percent { font-size: 1.8rem; }
-            
-            .chart-legend {
-                display: flex; justify-content: center;
-                flex-wrap: wrap; gap: 10px 15px;
-                margin-top: 25px;
-            }
-            .legend-item { display: flex; align-items: center; font-size: 0.85rem; }
-            .legend-color { width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; }
-
-            .weekly-focus { padding: 80px 0; }
-            .section-title { font-size: 2.5rem; }
-            .focus-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 25px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -341,20 +59,36 @@
         <section class="graphs-section" id="progress">
             <div class="container">
                 <div class="graphs-grid">
+                    <!-- Graph 1: Tasks -->
                     <div class="graph-item" style="animation-delay: 0.2s;">
                         <h3>Tasks Completed</h3>
                         <div class="donut-chart" style="animation-name: fill-tasks;"><span class="percent">75%</span></div>
-                        <div class="chart-legend"><div class="legend-item"><span class="legend-color" style="background-color:#6f42c1;"></span>Work</div><div class="legend-item"><span class="legend-color" style="background-color:#fd7e14;"></span>Personal</div></div>
+                        <!-- ========== LEGEND UPDATED HERE ========== -->
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background-color:#6f42c1;"></span>Work (40%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#fd7e14;"></span>Personal (35%)</div>
+                        </div>
                     </div>
+                    <!-- Graph 2: Study -->
                     <div class="graph-item" style="animation-delay: 0.4s;">
                         <h3>Study Goals</h3>
                         <div class="donut-chart" style="animation-name: fill-study;"><span class="percent">60%</span></div>
-                        <div class="chart-legend"><div class="legend-item"><span class="legend-color" style="background-color:#20c997;"></span>Reading</div><div class="legend-item"><span class="legend-color" style="background-color:#28a745;"></span>Practice</div></div>
+                        <!-- ========== LEGEND UPDATED HERE ========== -->
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background-color:#20c997;"></span>Reading (30%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#28a745;"></span>Practice (30%)</div>
+                        </div>
                     </div>
+                    <!-- Graph 3: Budget -->
                     <div class="graph-item" style="animation-delay: 0.6s;">
                         <h3>Budget Used</h3>
                         <div class="donut-chart" style="animation-name: fill-budget;"><span class="percent">85%</span></div>
-                        <div class="chart-legend"><div class="legend-item"><span class="legend-color" style="background-color:#ffc107;"></span>Food</div><div class="legend-item"><span class="legend-color" style="background-color:#dc3545;"></span>Bills</div><div class="legend-item"><span class="legend-color" style="background-color:#6c757d;"></span>Other</div></div>
+                        <!-- ========== LEGEND UPDATED HERE ========== -->
+                        <div class="chart-legend">
+                            <div class="legend-item"><span class="legend-color" style="background-color:#ffc107;"></span>Food (40%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#dc3545;"></span>Bills (30%)</div>
+                            <div class="legend-item"><span class="legend-color" style="background-color:#6c757d;"></span>Other (15%)</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -391,4 +125,10 @@
                 <a href="#" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
                 <a href="#" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg></a>
                 <a href="#" title="Pinterest"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.117.223.084.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.318.545 3.582.545 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg></a>
-                <a href="#" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-
+                <a href="#" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
