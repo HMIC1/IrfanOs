@@ -218,3 +218,70 @@ a {
   .hero h1 { font-size: 2.2rem; }
   .nav-links { display: none; }
   }
+
+/* --- STYLES FOR CATEGORY & BOOK PAGES --- */
+
+/* 8. Category Hero Section
+/* ---------------------------------- */
+.category-hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--card-bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.category-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.category-hero p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 9. Books Grid Section
+/* ---------------------------------- */
+.books-section {
+  padding: 4rem 0;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--heading-color);
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-accent-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.book-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.book-author {
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
